@@ -3,6 +3,7 @@ name: Deploy Docs
 on:
   push:
     branches:
+      - master
       - main
       - dev
   workflow_dispatch:
