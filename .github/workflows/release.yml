@@ -1,0 +1,115 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.com'
+
+      - name: Install dependencies
+        run: npm run bootstrap
+
+      - name: Build
+        run: npm run dist
+
+      - name: Update version
+        id: version
+        run: |
+          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "CHANGELOG_FILE=CHANGELOG.md" >> $GITHUB_OUTPUT
+
+      - name: Generate Changelog
+        run: |
+          echo "## [v${{ steps.version.outputs.VERSION }}] - $(date +'%Y-%m-%d')" >> CHANGELOG.tmp.md
+          echo "" >> CHANGELOG.tmp.md
+          echo "### Features" >> CHANGELOG.tmp.md
+          echo "- Dark mode support for documentation" >> CHANGELOG.tmp.md
+          echo "- Offline local search with Chinese/English support" >> CHANGELOG.tmp.md
+          echo "- DEV branch auto-deploy workflow" >> CHANGELOG.tmp.md
+          echo "- Complete GitHub Actions automation" >> CHANGELOG.tmp.md
+          echo "" >> CHANGELOG.tmp.md
+          echo "### Improvements" >> CHANGELOG.tmp.md
+          echo "- Enhanced documentation styling" >> CHANGELOG.tmp.md
+          echo "- Improved component search functionality" >> CHANGELOG.tmp.md
+          echo "- Better footer navigation layout" >> CHANGELOG.tmp.md
+          echo "" >> CHANGELOG.tmp.md
+          if [ -f CHANGELOG.md ]; then
+            tail -n +2 CHANGELOG.md >> CHANGELOG.tmp.md
+          fi
+          mv CHANGELOG.tmp.md CHANGELOG.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.email "ci@github.com"
+          git config --global user.name "GitHub Actions"
+          git add package.json package-lock.json CHANGELOG.md
+          git commit -m "chore: bump version to v${{ steps.version.outputs.VERSION }}"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.VERSION }}
+          name: Release v${{ steps.version.outputs.VERSION }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node for NPM
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.com'
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push changes
+        run: |
+          git push origin main
+          git push origin v${{ steps.version.outputs.VERSION }}
+
+      - name: Create PR to main
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `chore: merge dev to main for v${{ steps.version.outputs.VERSION }}`,
+              body: `Release version: v${{ steps.version.outputs.VERSION }}`,
+              head: 'dev',
+              base: 'main'
+            });
+            console.log('PR created:', pullRequest.html_url);

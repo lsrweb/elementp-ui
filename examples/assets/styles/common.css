@@ -1,0 +1,285 @@
+/* =============================================
+   Design Tokens
+   ============================================= */
+:root {
+  --doc-primary:       #5b6af0;
+  --doc-primary-soft:  #818cf8;
+  --doc-primary-bg:    #eff1ff;
+  --doc-primary-bg2:   #e8eaff;
+
+  --doc-bg:            #ffffff;
+  --doc-bg-soft:       #f7f8fc;
+  --doc-bg-mute:       #edf0f5;
+
+  --doc-text:          #18191c;
+  --doc-text-2:        #4a5260;
+  --doc-text-3:        #8d95a3;
+
+  --doc-border:        #e2e6ef;
+  --doc-border-soft:   #edf0f5;
+
+  --doc-shadow-sm:     0 1px 4px rgba(15,20,40,.07);
+  --doc-shadow:        0 4px 20px rgba(15,20,40,.1);
+  --doc-shadow-lg:     0 8px 40px rgba(15,20,40,.12);
+
+  --doc-radius:        10px;
+  --doc-radius-sm:     6px;
+
+  --doc-font: 'Inter', -apple-system, 'PingFang SC', 'Hiragino Sans GB',
+              'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  --doc-mono: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+
+  --header-height: 64px;
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--doc-font);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--doc-text);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+
+  &.is-component {
+    overflow: hidden;
+  }
+}
+
+#app {
+  height: 100%;
+
+  &.is-component {
+    overflow-y: hidden;
+
+    .main-cnt {
+      padding: 0;
+      margin-top: 0;
+      height: 100%;
+      min-height: auto;
+    }
+
+    .headerWrapper {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1500;
+
+      .container {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/* =============================================
+   Typography
+   ============================================= */
+a {
+  color: var(--doc-primary);
+  text-decoration: none;
+  transition: color .15s;
+
+  &:hover {
+    color: var(--doc-primary-soft);
+  }
+}
+
+code {
+  font-family: var(--doc-mono);
+  font-size: .85em;
+  background: var(--doc-primary-bg);
+  color: var(--doc-primary);
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* =============================================
+   Code Blocks (hljs)
+   ============================================= */
+.hljs {
+  font-family: var(--doc-mono);
+  font-size: 13px;
+  line-height: 1.85;
+  padding: 22px 28px;
+  background: #1a1d2e;
+  color: #cdd6f4;
+  border: none;
+  border-radius: var(--doc-radius);
+  margin-bottom: 28px;
+  -webkit-font-smoothing: auto;
+  overflow-x: auto;
+
+  .hljs-keyword,
+  .hljs-selector-tag { color: #cba6f7; }
+  .hljs-string,
+  .hljs-attr        { color: #a6e3a1; }
+  .hljs-comment     { color: #6c7086; }
+  .hljs-number      { color: #fab387; }
+  .hljs-title       { color: #89dceb; }
+  .hljs-built_in    { color: #f38ba8; }
+  .hljs-tag         { color: #89b4fa; }
+  .hljs-name        { color: #89b4fa; }
+}
+
+/* =============================================
+   Layout
+   ============================================= */
+.main-cnt {
+  margin-top: calc(-1 * var(--header-height));
+  padding: var(--header-height) 0 300px;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.container,
+.page-container {
+  width: 1200px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+/* =============================================
+   Page Container (guide / resource pages)
+   ============================================= */
+.page-container {
+  padding-top: 64px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--doc-text);
+    margin: 0 0 20px;
+    letter-spacing: -.6px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--doc-text);
+    margin: 48px 0 16px;
+    letter-spacing: -.4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--doc-border-soft);
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--doc-text);
+    margin: 36px 0 12px;
+  }
+
+  h2, h3, h4, h5 {
+    font-weight: 600;
+
+    &:hover a {
+      opacity: .5;
+    }
+
+    a {
+      float: left;
+      margin-left: -22px;
+      opacity: 0;
+      cursor: pointer;
+      color: var(--doc-primary);
+      transition: opacity .15s;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--doc-text-2);
+    line-height: 1.8;
+    margin: 12px 0;
+  }
+
+  /* tip block */
+  .tip {
+    padding: 14px 18px;
+    background: #f0f3ff;
+    border-left: 4px solid var(--doc-primary);
+    border-radius: 0 var(--doc-radius-sm) var(--doc-radius-sm) 0;
+    margin: 24px 0;
+
+    p { margin: 0; color: var(--doc-text-2); }
+
+    code {
+      background: rgba(91,106,240,.12);
+      color: var(--doc-primary);
+    }
+  }
+
+  /* warning block */
+  .warning {
+    padding: 14px 18px;
+    background: #fff7f0;
+    border-left: 4px solid #f97316;
+    border-radius: 0 var(--doc-radius-sm) var(--doc-radius-sm) 0;
+    margin: 24px 0;
+
+    p { margin: 0; }
+
+    code {
+      background: rgba(249,115,22,.1);
+      color: #ea580c;
+    }
+  }
+}
+
+.demo {
+  margin: 28px 0;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 1240px) {
+  .container,
+  .page-container {
+    width: 100%;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .page-container {
+    padding: 0 16px;
+  }
+
+  #app.is-component .headerWrapper .container {
+    padding: 0 12px;
+  }
+
+  .page-container {
+    padding-top: 40px;
+  }
+}

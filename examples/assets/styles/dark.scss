@@ -1,0 +1,124 @@
+/* Dark theme simple overlay */
+html[data-theme='dark'] {
+  --doc-bg-color: #0d1117;
+  --doc-text-color: #c9d1d9;
+  --doc-border-color: #30363d;
+  --doc-hover-bg: #161b22;
+  
+  /* Navigation variables override */
+  --nav-bg:           #0d1117;
+  --nav-border:       #30363d;
+  --nav-text:         #8b949e;
+  --nav-text-hover:   #58a6ff;
+  --nav-text-active:  #58a6ff;
+  --nav-active-bg:    rgba(88, 166, 255, 0.15);
+  --nav-active-bar:   #58a6ff;
+  --nav-group-title:  #8b949e;
+  --nav-hover-bg:     rgba(139, 148, 158, 0.1);
+  --nav-section:      #c9d1d9;
+  --nav-highlight:    #58a6ff;
+  --nav-search-bg:    #0d1117;
+  --nav-search-border:#30363d;
+  --nav-search-input: #c9d1d9;
+  
+  body, .main-cnt {
+    background-color: var(--doc-bg-color);
+    color: var(--doc-text-color);
+  }
+
+  .header {
+    background: rgba(13, 17, 23, 0.96) !important;
+    border-bottom: 1px solid var(--doc-border-color) !important;
+  }
+  
+  .header h1 a, .nav-item a, .nav-versions span, .lang-item span {
+    color: var(--doc-text-color) !important;
+  }
+  
+  .header .nav-item a.active {
+    color: var(--nav-text-active) !important;
+    background: var(--nav-active-bg) !important;
+  }
+
+  .header .nav-item a:hover, .nav-versions span:hover, .lang-item span:hover {
+    color: var(--nav-text-hover) !important;
+    background: var(--nav-hover-bg) !important;
+  }
+
+  .page-component__nav {
+    background-color: var(--nav-bg) !important;
+    border-right-color: var(--nav-border) !important;
+  }
+  .doc-sidenav {
+    background-color: var(--nav-bg) !important;
+  }
+
+  .demo-block {
+    border-color: var(--doc-border-color) !important;
+    background: transparent !important;
+  }
+  
+  .demo-block .meta {
+    background-color: var(--doc-hover-bg) !important;
+    border-top: 1px solid var(--doc-border-color) !important;
+    border-bottom: 1px solid var(--doc-border-color) !important;
+  }
+  
+  .demo-block:hover {
+    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .demo-block .source {
+     background-color: var(--doc-bg-color) !important;
+  }
+
+  .page-container p, .page-container ul li {
+    color: var(--doc-text-color) !important;
+  }
+  
+  .page-container > h2, .page-container > h3, .page-container > h4, .page-container > h5 {
+    color: #fff !important;
+  }
+
+  .page-component__content > h2, 
+  .page-component__content > h3, 
+  .page-component__content > h4, 
+  .page-component__content > h5, 
+  .content > h2, 
+  .content > h3, 
+  .content > h4, 
+  .content > h5 {
+    color: #fff !important;
+  }
+
+  .page-component__content > table, .content > table {
+    border-color: var(--doc-border-color) !important;
+    background-color: var(--doc-bg-color) !important;
+    box-shadow: none !important;
+  }
+
+  .page-container table td, .page-container table th,
+  .page-component__content table td, .page-component__content table th,
+  .content table td, .content table th {
+    border-bottom: 1px solid var(--doc-border-color) !important;
+    background-color: var(--doc-bg-color) !important;
+    color: var(--doc-text-color) !important;
+  }
+  
+  .page-component__content table th, .content table th {
+     background-color: var(--doc-hover-bg) !important;
+     border-bottom: 1px solid var(--doc-border-color) !important;
+  }
+  
+  .page-component__content table td.code, .content table td.code {
+    background-color: var(--doc-hover-bg) !important;
+    color: #ff7b72 !important;
+  }
+
+  code {
+    background-color: var(--doc-hover-bg) !important;
+    color: #ff7b72 !important;
+    border-color: var(--doc-border-color) !important;
+  }
+}
+
