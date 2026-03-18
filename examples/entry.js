@@ -2,6 +2,7 @@ import Vue from 'vue';
 import entry from './app';
 import VueRouter from 'vue-router';
 import Element from 'main/index.js';
+import Business from '../business/index.js';
 import hljs from 'highlight.js';
 import routes from './route.config';
 import demoBlock from './components/demo-block';
@@ -19,6 +20,7 @@ import './assets/styles/dark.scss';
 import icon from './icon.json';
 
 Vue.use(Element);
+Vue.use(Business);
 Vue.use(VueRouter);
 Vue.component('demo-block', demoBlock);
 Vue.component('main-footer', MainFooter);

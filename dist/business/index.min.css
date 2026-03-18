@@ -1,0 +1,95 @@
+
+.biz-card[data-v-237c40c4] {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 30px rgba(15, 20, 40, .06);
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.biz-card.is-bordered[data-v-237c40c4] {
+  border-color: #e8edf5;
+}
+.biz-card.is-never-shadow[data-v-237c40c4] {
+  box-shadow: none;
+}
+.biz-card.is-hover-shadow[data-v-237c40c4]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(15, 20, 40, .08);
+}
+.biz-card__header[data-v-237c40c4] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px 0;
+}
+.biz-card__title-wrap[data-v-237c40c4] {
+  min-width: 0;
+}
+.biz-card__title[data-v-237c40c4] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #18191c;
+}
+.biz-card__subtitle[data-v-237c40c4] {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #6b7a99;
+}
+.biz-card__extra[data-v-237c40c4] {
+  flex-shrink: 0;
+}
+.biz-card__body[data-v-237c40c4] {
+  padding: 18px 22px 22px;
+  color: #4a5260;
+  line-height: 1.8;
+}
+.biz-card__footer[data-v-237c40c4] {
+  margin: 0 22px 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eef2f7;
+}
+
+
+.biz-display[data-v-2295d362] {
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+  border: 1px solid #e9edf5;
+}
+.biz-display.is-inline[data-v-2295d362] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.biz-display.is-muted[data-v-2295d362] {
+  background: #fafbff;
+}
+.biz-display__label[data-v-2295d362] {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8d95a3;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.biz-display__value[data-v-2295d362] {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #18191c;
+}
+.biz-display.is-inline .biz-display__value[data-v-2295d362] {
+  margin-top: 0;
+}
+.biz-display__note[data-v-2295d362] {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7a99;
+}
+

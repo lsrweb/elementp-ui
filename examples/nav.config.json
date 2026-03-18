@@ -41,6 +41,23 @@
       "name": "组件",
       "groups": [
         {
+          "groupName": "业务组件",
+          "list": [
+            {
+              "path": "/business/index",
+              "title": "业务组件总览"
+            },
+            {
+              "path": "/business/card",
+              "title": "业务卡片"
+            },
+            {
+              "path": "/business/display",
+              "title": "业务展示"
+            }
+          ]
+        },
+        {
           "groupName": "Basic",
           "list": [
             {
@@ -261,22 +278,6 @@
               "title": "Dialog 对话框"
             },
             {
-              "path": "/tooltip",
-              "title": "Tooltip 文字提示"
-            },
-            {
-              "path": "/popover",
-              "title": "Popover 弹出框"
-            },
-            {
-              "path": "/popconfirm",
-              "title": "Popconfirm 气泡确认框"
-            },
-            {
-              "path": "/card",
-              "title": "Card 卡片"
-            },
-            {
               "path": "/carousel",
               "title": "Carousel 走马灯"
             },
@@ -287,22 +288,6 @@
             {
               "path": "/timeline",
               "title": "Timeline 时间线"
-            },
-            {
-              "path": "/divider",
-              "title": "Divider 分割线"
-            },
-            {
-              "path": "/calendar",
-              "title": "Calendar 日历"
-            },
-            {
-              "path": "/image",
-              "title": "Image 图片"
-            },
-            {
-              "path": "/backtop",
-              "title": "Backtop 回到顶部"
             },
             {
               "path": "/infiniteScroll",
@@ -362,6 +347,23 @@
     {
       "name": "Components",
       "groups": [
+        {
+          "groupName": "Business Components",
+          "list": [
+            {
+              "path": "/business/index",
+              "title": "Business Overview"
+            },
+            {
+              "path": "/business/card",
+              "title": "Business Card"
+            },
+            {
+              "path": "/business/display",
+              "title": "Business Display"
+            }
+          ]
+        },
         {
           "groupName": "Basic",
           "list": [

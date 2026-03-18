@@ -1,0 +1,4 @@
+{
+  "biz-card": "./business/biz-card/index.js",
+  "biz-display": "./business/biz-display/index.js"
+}
