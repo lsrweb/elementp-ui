@@ -16,7 +16,7 @@
     "bootstrap": "yarn || npm i",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js & node build/bin/build-search.js",
     "build:business:file": "node build/bin/build-business-entry.js",
-    "build:business": "npm run build:business:file && cross-env NODE_ENV=production webpack --config build/webpack.business.js",
+    "build:business": "rimraf dist/business && npm run build:business:file && cross-env NODE_ENV=production webpack --config build/webpack.business.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "build:umd": "node build/bin/build-locale.js",

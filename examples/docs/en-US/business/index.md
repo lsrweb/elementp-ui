@@ -26,14 +26,10 @@ The business components directory is independent from `packages/` and is used fo
 
 ## Build output
 
-Business components are built separately into `dist/business/`:
+Business components are bundled into a single entry under `dist/business/`:
 
-- `dist/business/index.min.js`: business components entry
-- `dist/business/index.min.css`: business components styles
-- `dist/business/biz-card.min.js`: business card component bundle
-- `dist/business/biz-card.min.css`: business card styles
-- `dist/business/biz-display.min.js`: business display component bundle
-- `dist/business/biz-display.min.css`: business display styles
+- `dist/business/biz-ui.min.js`: business components entry
+- `dist/business/biz-ui.min.css`: business components styles
 
 ## Directory structure
 
@@ -52,8 +48,20 @@ You can import the combined entry when you want all business components, or impo
 ## Direct browser usage
 
 ```html
-<link rel="stylesheet" href="./dist/business/index.min.css">
-<script src="./dist/business/index.min.js"></script>
+<div id="app">
+  <biz-card title="Order Overview" subtitle="Updated at 12:00">
+    <div>Total orders: 128</div>
+  </biz-card>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<link rel="stylesheet" href="./dist/business/biz-ui.min.css">
+<script src="./dist/business/biz-ui.min.js"></script>
+<script>
+  // You can rely on auto-install, but explicit registration is clearer.
+  Vue.use(BizUI);
+  new Vue({ el: '#app' });
+</script>
 ```
 
-If you only need one component, include the matching `.js` and `.css` pair, such as `biz-card.min.js` + `biz-card.min.css`.
+This is still a Vue component library, so Vue must be loaded first. The components render inside a Vue instance rather than as standalone native HTML elements.

@@ -26,14 +26,10 @@
 
 ## 构建产物
 
-业务组件会单独构建到 `dist/business/`：
+业务组件会打包成一个独立入口，输出到 `dist/business/`：
 
-- `dist/business/index.min.js`：业务组件总入口
-- `dist/business/index.min.css`：业务组件总样式
-- `dist/business/biz-card.min.js`：业务卡片组件
-- `dist/business/biz-card.min.css`：业务卡片样式
-- `dist/business/biz-display.min.js`：业务展示组件
-- `dist/business/biz-display.min.css`：业务展示样式
+- `dist/business/biz-ui.min.js`：业务组件总入口
+- `dist/business/biz-ui.min.css`：业务组件总样式
 
 ## 目录结构
 
@@ -52,8 +48,20 @@ business/
 ## 浏览器直接使用
 
 ```html
-<link rel="stylesheet" href="./dist/business/index.min.css">
-<script src="./dist/business/index.min.js"></script>
+<div id="app">
+  <biz-card title="订单概览" subtitle="今日 12:00 更新">
+    <div>总订单：128</div>
+  </biz-card>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<link rel="stylesheet" href="./dist/business/biz-ui.min.css">
+<script src="./dist/business/biz-ui.min.js"></script>
+<script>
+  // 既可以依赖自动安装，也可以显式注册；推荐显式调用，更直观
+  Vue.use(BizUI);
+  new Vue({ el: '#app' });
+</script>
 ```
 
-如果只需要单个组件，也可以同时引入对应的 `.js` 和 `.css` 文件，例如 `biz-card.min.js` + `biz-card.min.css`。
+注意：这是 Vue 组件库，页面里仍然需要先有 Vue，再加载 `biz-ui.min.js`。组件不是原生 HTML 标签，必须挂到一个 Vue 实例上才会渲染。
