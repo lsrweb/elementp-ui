@@ -41,7 +41,7 @@ jobs:
         if: steps.check_release.outputs.RELEASE_EXISTS == 'false'
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '14'
 
       - name: Build
         if: steps.check_release.outputs.RELEASE_EXISTS == 'false'
@@ -70,7 +70,7 @@ jobs:
         if: steps.check_release.outputs.RELEASE_EXISTS == 'false'
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '14'
           registry-url: 'https://registry.npmjs.com'
 
       - name: Publish to NPM
