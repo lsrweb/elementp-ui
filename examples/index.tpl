@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_137970_p1tpzmomxp9cnmi.css">
     <link rel='mask-icon' href="https://raw.githubusercontent.com/ElemeFE/element/dev/examples/assets/images/element-logo-small.svg" color="#409EFF">
     <link rel="stylesheet" href="//shadow.elemecdn.com/npm/highlight.js@9.3.0/styles/color-brewer.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css">
     <title>Element - The world's most popular Vue UI framework</title>
     <meta name="description" content="Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库" />
   </head>
@@ -15,6 +16,7 @@
         document.write('<script src="//cdn.jsdelivr.net/npm/es6-promise@4.1.1/dist/es6-promise.min.js"><\/script><script>ES6Promise.polyfill()<\/script>')
       }
     </script>
+    <script src="//cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
     <div id="app"></div>
     <% if (process.env.NODE_ENV === 'production') { %>
       <script src="//shadow.elemecdn.com/npm/vue@2.5.21/dist/vue.runtime.min.js"></script>

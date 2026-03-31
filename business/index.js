@@ -2,10 +2,12 @@
 
 import BizCard from './biz-card/index.js';
 import BizDisplay from './biz-display/index.js';
+import BizRichTextEditor from './biz-rich-text-editor/index.js';
 
 const components = [
   BizCard,
-  BizDisplay
+  BizDisplay,
+  BizRichTextEditor
 ];
 
 const install = function(Vue) {
@@ -23,5 +25,6 @@ export default {
   version: '2.15.16',
   install,
   BizCard,
-  BizDisplay
+  BizDisplay,
+  BizRichTextEditor
 };

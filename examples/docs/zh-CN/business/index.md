@@ -2,6 +2,8 @@
 
 业务组件目录独立于 `packages/`，用于存放网页里常用的展示型、卡片型业务封装。
 
+> 本页的富文本编辑器示例依赖 Quill；文档站已自动加载其 JS/CSS，若在其它项目中使用，也需要先引入 Quill。
+
 ## 组件预览
 
 :::demo 这是一个最基础的业务卡片预览。
@@ -24,6 +26,23 @@
 ```
 :::
 
+:::demo 基于 Quill 的富文本编辑器预览，支持 `v-model` 双向绑定。
+
+```html
+<biz-rich-text-editor v-model="content" placeholder="请输入正文" :height="360" />
+
+<script>
+export default {
+  data() {
+    return {
+      content: '<p>欢迎使用 BizRichTextEditor</p>'
+    };
+  }
+};
+</script>
+```
+:::
+
 ## 构建产物
 
 业务组件会打包成一个独立入口，输出到 `dist/business/`：
@@ -37,6 +56,7 @@
 business/
   biz-card/
   biz-display/
+  biz-rich-text-editor/
   components.json
   index.js
 ```

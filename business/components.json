@@ -1,4 +1,5 @@
 {
   "biz-card": "./business/biz-card/index.js",
-  "biz-display": "./business/biz-display/index.js"
+  "biz-display": "./business/biz-display/index.js",
+  "biz-rich-text-editor": "./business/biz-rich-text-editor/index.js"
 }

@@ -54,6 +54,10 @@
             {
               "path": "/business/display",
               "title": "业务展示"
+            },
+            {
+              "path": "/business/rich-text-editor",
+              "title": "富文本编辑器"
             }
           ]
         },
@@ -393,6 +397,10 @@
             {
               "path": "/business/display",
               "title": "Business Display"
+            },
+            {
+              "path": "/business/rich-text-editor",
+              "title": "Rich Text Editor"
             }
           ]
         },

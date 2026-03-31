@@ -2,6 +2,8 @@
 
 The business components directory is independent from `packages/` and is used for common presentation and card-style components that can be dropped directly into web pages.
 
+> The rich text editor demo depends on Quill. The docs site loads its JS/CSS automatically; if you use it elsewhere, make sure Quill is available first.
+
 ## Component preview
 
 :::demo A basic business card preview.
@@ -24,6 +26,23 @@ The business components directory is independent from `packages/` and is used fo
 ```
 :::
 
+:::demo A Quill-based rich text editor preview with `v-model` binding.
+
+```html
+<biz-rich-text-editor v-model="content" placeholder="Write something great" :height="360" />
+
+<script>
+export default {
+  data() {
+    return {
+      content: '<p>Welcome to BizRichTextEditor</p>'
+    };
+  }
+};
+</script>
+```
+:::
+
 ## Build output
 
 Business components are bundled into a single entry under `dist/business/`:
@@ -37,6 +56,7 @@ Business components are bundled into a single entry under `dist/business/`:
 business/
   biz-card/
   biz-display/
+  biz-rich-text-editor/
   components.json
   index.js
 ```
