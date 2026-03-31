@@ -18,6 +18,8 @@
   --nav-highlight:    #5b6af0;
   --nav-search-bg:    #f5f7fc;
   --nav-search-border:#e6e8eb;
+  --nav-search-input: #4a5260;
+  --nav-scrollbar-thumb: rgba(0,0,0,.15);
 }
 
 /* ---- Container ---- */
@@ -74,7 +76,7 @@
   outline: none;
   height: 34px;
   font-size: 13px;
-  color: var(--nav-text-hover);
+  color: var(--nav-search-input, var(--nav-text-hover));
   padding: 0;
   min-width: 0;
 
@@ -104,12 +106,12 @@
   overflow-x: hidden;
   padding: 8px 0 64px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.1) transparent;
+  scrollbar-color: var(--nav-scrollbar-thumb) transparent;
 
   &::-webkit-scrollbar { width: 3px; }
   &::-webkit-scrollbar-track { background: transparent; }
   &::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,.12);
+    background: var(--nav-scrollbar-thumb);
     border-radius: 2px;
   }
 }

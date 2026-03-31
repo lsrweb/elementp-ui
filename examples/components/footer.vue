@@ -54,7 +54,7 @@
 
 <style lang="scss">
   .footer {
-    background-color: #F7FBFD;
+    background-color: var(--doc-bg-soft, #F7FBFD);
     width: 100%;
     padding: 40px 150px;
     margin-top: -340px;
@@ -74,7 +74,7 @@
 
       h4 {
         font-size: 18px;
-        color: #333;
+        color: var(--doc-text, #333);
         line-height: 1;
         margin: 0 0 15px 0;
       }
@@ -84,10 +84,10 @@
         margin: 0;
         line-height: 2;
         font-size: 14px;
-        color: #666;
+        color: var(--doc-text-2, #666);
 
         &:hover {
-          color: #333;
+          color: var(--doc-primary, #333);
         }
       }
     }
@@ -97,7 +97,7 @@
       text-align: right;
 
       .footer-social-title {
-        color: #666;
+        color: var(--doc-text-2, #666);
         font-size: 18px;
         line-height: 1;
         margin: 0 0 20px 0;
@@ -110,7 +110,7 @@
         display: inline-block;
         line-height: 32px;
         text-align: center;
-        color: #c8d6e8;
+        color: var(--doc-text-3, #c8d6e8);
         background-color: transparent;
         size: 32px;
         font-size: 32px;
@@ -118,7 +118,7 @@
         margin-right: 20px;
         &:hover {
           transform: scale(1.2);
-          color: #8D99AB;
+          color: var(--doc-primary, #8D99AB);
         }
       }
 
@@ -132,15 +132,16 @@
     padding: 0;
     min-width: 120px;
     line-height: normal;
-    box-shadow: 0 0 11px 0 rgba(174, 187, 211, 0.24);
+    box-shadow: var(--doc-shadow, 0 0 11px 0 rgba(174, 187, 211, 0.24));
+    background: var(--doc-bg, #fff);
 
     .footer-popover-title {
-      border-bottom: solid 1px #eaeefb;
+      border-bottom: solid 1px var(--doc-border-soft, #eaeefb);
       height: 30px;
       line-height: 30px;
       text-align: center;
-      color: #99a9bf;
-      background-color: #f8f9fe;
+      color: var(--doc-text-3, #99a9bf);
+      background-color: var(--doc-bg-soft, #f8f9fe);
     }
 
     img {

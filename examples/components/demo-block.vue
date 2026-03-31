@@ -49,7 +49,7 @@
     margin-bottom: 28px;
     transition: box-shadow .2s;
     overflow: hidden;
-    background: #fff;
+    background: var(--doc-bg, #fff);
 
     &.hover {
       box-shadow: 0 4px 24px rgba(91,106,240,.1), 0 1px 6px rgba(0,0,0,.06);
@@ -62,6 +62,7 @@
     /* ---- Demo preview area ---- */
     .source {
       padding: 28px 24px;
+      background: var(--doc-bg, #fff);
     }
 
     /* ---- Expandable code area ---- */
@@ -119,7 +120,7 @@
       border-top: 1px solid var(--doc-border, #e2e6ef);
       border-radius: 0 0 12px 12px;
       cursor: pointer;
-      color: #94a3b8;
+      color: var(--doc-text-3, #94a3b8);
       font-size: 13px;
       gap: 6px;
       position: relative;
@@ -135,8 +136,8 @@
       }
 
       &:hover {
-        color: #5b6af0;
-        background: #eff1ff;
+        color: var(--doc-primary, #5b6af0);
+        background: var(--doc-primary-bg, #eff1ff);
       }
 
       i {
@@ -160,7 +161,7 @@
         line-height: 20px;
         border-radius: 6px;
         background: rgba(91,106,240,.1);
-        color: #5b6af0;
+        color: var(--doc-primary, #5b6af0);
         border: none;
         cursor: pointer;
         transition: background .15s;

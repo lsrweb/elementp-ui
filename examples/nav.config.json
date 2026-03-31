@@ -332,10 +332,6 @@
             {
               "path": "/drawer",
               "title": "Drawer 抽屉"
-            },
-            {
-              "path": "/demo-card",
-              "title": "DemoCard 演示卡片"
             }
           ]
         }
@@ -671,10 +667,6 @@
             {
               "path": "/drawer",
               "title": "Drawer"
-            },
-            {
-              "path": "/demo-card",
-              "title": "DemoCard"
             }
           ]
         }
@@ -993,10 +985,6 @@
             {
               "path": "/drawer",
               "title": "Drawer"
-            },
-            {
-              "path": "/demo-card",
-              "title": "DemoCard"
             }
           ]
         }
@@ -1315,10 +1303,6 @@
             {
               "path": "/drawer",
               "title": "Drawer"
-            },
-            {
-              "path": "/demo-card",
-              "title": "DemoCard"
             }
           ]
         }
